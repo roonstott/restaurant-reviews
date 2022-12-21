@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurant.Models.Restaurant
+@using BestRestaurant.Models
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @foreach (Cuisine cuisine in ViewBag.CuisineId)
+  {
+    @Html.LabelFor(model => model.CuisineId, $"{cuisine.Name}")
+    @Html.RadioButtonFor(model => model.CuisineId, cuisine.CuisineId)
+  }
+
+  <input type="submit" value="Add new Restaurant" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all cuisines", "Index")</p>
