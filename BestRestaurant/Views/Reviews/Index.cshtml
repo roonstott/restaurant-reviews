@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@using BestRestaurant.Models;
+@model BestRestaurant.Models.Restaurant
+
+<h2>Reviews for @Model.Name</h2>
+
+<ul>
+@foreach(Review review in Model.Reviews)
+{
+  <li>@review.Stars</li>
+}
+</ul>

@@ -4,10 +4,12 @@
 
 @model BestRestaurant.Models.Cuisine
 
+<h2>Add A New Cuisine</h2>
+
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
+  <p id="form">@Html.LabelFor(model => model.Name)</p>
+  <p id="form">@Html.TextBoxFor(model => model.Name)</p>
 
   <input type="submit" value="Add new Cuisine" class="btn btn-default" />
 }

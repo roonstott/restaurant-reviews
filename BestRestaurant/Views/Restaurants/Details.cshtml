@@ -2,9 +2,14 @@
   Layout = "_Layout";
 }
 
-@using BestRestaurant.Models;
+
 @model BestRestaurant.Models.Restaurant;
-@using System;
 
 
-<h2>@Model.Name</h2>
+<h2>Restaurant name: @Model.Name</h2>
+<h2>Cuisine: @Model.Cuisine.Name</h2>
+
+
+
+@Html.ActionLink("Back to all Cuisines", "Index", "Cuisines")
+@Html.ActionLink("Write A Review", "Create", "Reviews", new { id = Model.RestaurantId })

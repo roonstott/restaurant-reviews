@@ -5,17 +5,18 @@
 @model BestRestaurant.Models.Restaurant
 @using BestRestaurant.Models
 
+<h2>Add A New Restaurant</h2>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
+  <p id="form">@Html.LabelFor(model => model.Name)</p>
+  <p id="form">@Html.TextBoxFor(model => model.Name)</p>
 
   @foreach (Cuisine cuisine in ViewBag.CuisineId)
   {
-    @Html.LabelFor(model => model.CuisineId, $"{cuisine.Name}")
-    @Html.RadioButtonFor(model => model.CuisineId, cuisine.CuisineId)
+    <p id="form">@Html.LabelFor(model => model.CuisineId, $"{cuisine.Name}")</p>
+    <p id="form">@Html.RadioButtonFor(model => model.CuisineId, cuisine.CuisineId)</p>
   }
 
   <input type="submit" value="Add new Restaurant" class="btn btn-default" />
 }
-<p>@Html.ActionLink("Show all cuisines", "Index")</p>
+<p>@Html.ActionLink("Show all cuisines", "Index", "Cuisines")</p>

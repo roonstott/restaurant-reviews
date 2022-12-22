@@ -15,11 +15,11 @@ namespace BestRestaurant.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Restaurant> model = _db.Restaurants.ToList();
-    //   return View(model);
-    // }
+    public ActionResult Index()
+    {
+      List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).ToList();
+      return View(model);
+    }
 
     public ActionResult Create()
     {
@@ -32,19 +32,13 @@ namespace BestRestaurant.Controllers
     {
       _db.Restaurants.Add(restaurant);
       _db.SaveChanges();
-      // int id = restaurant.CuisineId;
-      // Cuisine thisCuisine = _db.Cuisines
-      //             .Include(cuisine => cuisine.Restaurants)
-      //             .FirstOrDefault(cuisine => cuisine.CuisineId == restaurant.CuisineId);
-
-      // Restaurant thisRestaurant = _db.Restaurants
-      //                             .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
       return View("Details", restaurant);
     }
 
     public ActionResult Details(int id)
     {
       Restaurant thisRestaurant = _db.Restaurants
+                                  .Include(restaurant => restaurant.Cuisine)
                                   .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
       return View (thisRestaurant);
     }

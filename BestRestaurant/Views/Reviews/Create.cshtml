@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurant.Models.Review
+@using BestRestaurant.Models
+
+
+
+<h2>Write A Review</h2>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Author)
+  @Html.TextBoxFor(model => model.Author)
+  @Html.LabelFor(model => model.Stars)
+  @Html.TextBoxFor(model => model.Stars)
+  @Html.LabelFor(model => model.ReviewBody)
+  @Html.TextBoxFor(model => model.ReviewBody)
+  @Html.Hidden("RestaurantId", Model.RestaurantId)
+  
+  <input type="submit" value="Submit Review" class="btn btn-default" />
+}
+@* <p>@Html.ActionLink("All reviews for ", "Index", "Cuisines")</p> *@

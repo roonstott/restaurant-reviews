@@ -11,6 +11,31 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
+  <div class="jumbotron">
+      <h1 class="display-4">Best Restaurants</h1>
+      <p class="lead">A place to browse and post restaurant reviews, organized by cuisine</p>
+      <hr class="my-4">
+      <p class="lead">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              @Html.ActionLink("All Cuisines", "Index", "Cuisines")<br>
+            </li>
+            <li class="nav-item active">
+              @Html.ActionLink("All Restaurants", "Index", "Restaurants")<br>
+            </li>
+            <li class="nav-item active">
+              @Html.ActionLink("Add A Restaurant", "Create", "Restaurants")<br>
+            </li>
+            <li class="nav-item active">
+              @Html.ActionLink("Add A Cuisine", "Create", "Cuisines")<br>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      </p>
+    </div>
     @RenderBody()
   </body>
 </html>
